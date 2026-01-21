@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Player Goals</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="ui-root">
+        <div id="goalContainer" class="goal-container">
+            <div class="goal-card">
+                <div class="card-header">
+                    <div class="header-left">
+                        <div class="logo-wrap">
+                            <img src="../images/logo.png" alt="Logo">
+                        </div>
+                        <div class="header-text">
+                            <h2>Community Goal</h2>
+                            <p id="goalLabel">20 Spelers bereikt</p>
+                        </div>
+                    </div>
+                    <div class="header-badge" id="claimState">
+                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none">
+                            <path d="M20 6L9 17L4 12" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                        <span>Claimbaar</span>
+                    </div>
+                </div>
+
+                <div class="card-body">
+                    <div class="stats-grid">
+                        <div class="stat-box">
+                            <span class="stat-label">Online Spelers</span>
+                            <span class="stat-value" id="currentPlayers">0</span>
+                        </div>
+                        <div class="stat-box">
+                            <span class="stat-label">Volgende Doel</span>
+                            <span class="stat-value" id="requiredPlayers">0</span>
+                        </div>
+                    </div>
+
+                    <div class="progress-wrap">
+                        <div class="progress-top">
+                            <span class="progress-label">Voortgang naar volgende goal</span>
+                            <span class="progress-percent" id="progressText">0%</span>
+                        </div>
+                        <div class="progress-track">
+                            <div class="progress-fill" id="progressBar"></div>
+                        </div>
+                    </div>
+
+                    <div class="rewards-wrap">
+                        <h3 class="rewards-title">Huidige Beloningen</h3>
+                        <div class="rewards-grid" id="rewardsList"></div>
+                    </div>
+                </div>
+
+                <div class="card-footer">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
+                        <circle cx="12" cy="12" r="3" fill="currentColor"/>
+                        <path d="M12 1v6m0 6v6M23 12h-6m-6 0H1" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                    </svg>
+                    <span>Typ <strong>/playergoal</strong> om te claimen • <strong>/toggleplayergoal</strong> om te verbergen</span>
+                </div>
+            </div>
+        </div>
+
+        <div id="menuOverlay" class="menu-overlay">
+            <div class="menu-panel">
+                <div class="menu-header">
+                    <div class="menu-header-left">
+                        <div class="menu-icon">
+                            <img src="../images/logo.png" alt="Logo">
+                        </div>
+                        <div>
+                            <h2>Community Beloningen</h2>
+                            <p class="menu-subtitle">Kies en claim jouw verdiende rewards</p>
+                        </div>
+                    </div>
+                    <button id="closeMenu" class="close-btn">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+                            <path d="M18 6L6 18M6 6L18 18" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/>
+                        </svg>
+                        Sluiten
+                    </button>
+                </div>
+
+                <div class="menu-stats">
+                    <div class="menu-stat-card">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+                            <path d="M17 21V19C17 16.7909 15.2091 15 13 15H5C2.79086 15 1 16.7909 1 19V21" stroke="currentColor" stroke-width="2"/>
+                            <circle cx="9" cy="7" r="4" stroke="currentColor" stroke-width="2"/>
+                            <path d="M23 21V19C23 17.3431 21.6569 16 20 16" stroke="currentColor" stroke-width="2"/>
+                            <path d="M16 3.13C17.4144 3.68568 18.5 5.18325 18.5 7C18.5 8.81675 17.4144 10.3143 16 10.87" stroke="currentColor" stroke-width="2"/>
+                        </svg>
+                        <div>
+                            <p class="stat-card-label">Spelers Online</p>
+                            <h3 id="menuCurrentPlayers">0</h3>
+                        </div>
+                    </div>
+                    <div class="menu-stat-card accent">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+                            <path d="M20 6L9 17L4 12" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                        <div>
+                            <p class="stat-card-label">Claim Status</p>
+                            <h3 id="menuClaimCopy">Kies een goal</h3>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="goal-list" id="goalList"></div>
+            </div>
+        </div>
+
+        <div id="celebrationOverlay" class="celebration-overlay"></div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
